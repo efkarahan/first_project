@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'constants/app_theme.dart';
 import 'screens/home_screen.dart';
 import 'screens/chat_screen.dart';
 import 'screens/history_screen.dart';
 import 'widgets/custom_bottom_nav.dart';
+import 'bloc/navigation/navigation_bloc.dart';
+import 'bloc/navigation/navigation_state.dart';
 
 void main() {
   // Status bar'ı koyu tema yap
@@ -23,26 +26,22 @@ class SusamAI extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Susam AI',
-      debugShowCheckedModeBanner: false,
-      theme: AppTheme.darkTheme,
-      home: const MainScreen(),
+    return BlocProvider(
+      create: (context) => NavigationBloc(),
+      child: MaterialApp(
+        title: 'Susam AI',
+        debugShowCheckedModeBanner: false,
+        theme: AppTheme.darkTheme,
+        home: const MainScreen(),
+      ),
     );
   }
 }
 
-class MainScreen extends StatefulWidget {
+class MainScreen extends StatelessWidget {
   const MainScreen({super.key});
 
-  @override
-  State<MainScreen> createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  int _currentIndex = 0;
-
-  final List<Widget> _screens = const [
+  static final List<Widget> _screens = const [
     HomeScreen(),
     ChatScreen(),
     HistoryScreen(),
@@ -50,16 +49,13 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: _screens[_currentIndex],
-      bottomNavigationBar: CustomBottomNav(
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-      ),
+    return BlocBuilder<NavigationBloc, NavigationState>(
+      builder: (context, state) {
+        return Scaffold(
+          body: _screens[state.currentIndex],
+          bottomNavigationBar: const CustomBottomNav(),
+        );
+      },
     );
   }
 }
