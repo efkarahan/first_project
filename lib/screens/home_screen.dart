@@ -15,9 +15,9 @@ class HomeScreen extends StatelessWidget {
           children: [
             // Üst kısım - Header
             const HomeHeader(),
-            
+
             const SizedBox(height: 8),
-            
+
             // Photo Editing kategorisi
             CategorySection(
               category: FeatureCategory(
@@ -26,19 +26,19 @@ class HomeScreen extends StatelessWidget {
                   FeatureItem(
                     title: 'Photo Restore',
                     subtitle: 'Damaged photo repair',
-                    imagePath: 'assets/images/photo_restore.jpeg',
+                    imagePath: 'assets/images/photo_editing/photo_restore.jpeg',
                   ),
                   FeatureItem(
                     title: 'Black & White',
                     subtitle: 'Vintage style conversion',
-                    imagePath: '',
+                    imagePath: 'assets/images/photo_editing/black_white.jpeg',
                   ),
                 ],
               ),
             ),
-            
+
             const SizedBox(height: 32),
-            
+
             // Creative & Art kategorisi
             CategorySection(
               category: FeatureCategory(
@@ -57,9 +57,9 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            
+
             const SizedBox(height: 32),
-            
+
             // Portrait & People kategorisi
             CategorySection(
               category: FeatureCategory(
@@ -78,7 +78,70 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-            
+
+            const SizedBox(height: 32),
+
+            // Product & Brand kategorisi
+            CategorySection(
+              category: FeatureCategory(
+                title: 'Product & Brand',
+                items: [
+                  FeatureItem(
+                    title: 'Product Photo',
+                    subtitle: 'Professional product shoot',
+                    imagePath: '',
+                  ),
+                  FeatureItem(
+                    title: 'Brand Logo',
+                    subtitle: 'AI logo generation',
+                    imagePath: '',
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 32),
+
+            // Interior Design kategorisi
+            CategorySection(
+              category: FeatureCategory(
+                title: 'Interior Design',
+                items: [
+                  FeatureItem(
+                    title: 'Room Design',
+                    subtitle: 'AI interior styling',
+                    imagePath: '',
+                  ),
+                  FeatureItem(
+                    title: 'Furniture Style',
+                    subtitle: 'Modern furniture design',
+                    imagePath: '',
+                  ),
+                ],
+              ),
+            ),
+
+            const SizedBox(height: 32),
+
+            // Travel Places kategorisi
+            CategorySection(
+              category: FeatureCategory(
+                title: 'Travel Places',
+                items: [
+                  FeatureItem(
+                    title: 'City Landmark',
+                    subtitle: 'Famous landmarks',
+                    imagePath: '',
+                  ),
+                  FeatureItem(
+                    title: 'Nature Scene',
+                    subtitle: 'Beautiful landscapes',
+                    imagePath: '',
+                  ),
+                ],
+              ),
+            ),
+
             const SizedBox(height: 20),
           ],
         ),
@@ -86,4 +149,3 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-

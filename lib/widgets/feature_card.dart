@@ -44,6 +44,7 @@ class FeatureCard extends StatelessWidget {
                       width: double.infinity,
                       height: double.infinity,
                       fit: BoxFit.cover,
+                      alignment: Alignment.center,
                       errorBuilder: (context, error, stackTrace) {
                         return Container(
                           color: AppColors.divider,
