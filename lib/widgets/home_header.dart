@@ -8,16 +8,18 @@ class HomeHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.fromLTRB(20, 12, 20, 12),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           // Sol taraf - Başlık
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'SUSAM AI',
+          Padding(
+            padding: const EdgeInsets.only(left: 8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'SUSAM AI',
                 style: Theme.of(context).textTheme.headlineLarge?.copyWith(
                       letterSpacing: 1.2,
                     ),
@@ -27,10 +29,11 @@ class HomeHeader extends StatelessWidget {
                 'AI IMAGE & EDITOR',
                 style: Theme.of(context).textTheme.bodyMedium?.copyWith(
                       fontSize: 12,
-                      letterSpacing: 0.5,
-                    ),
+                  letterSpacing: 0.5,
+                ),
               ),
-            ],
+              ],
+            ),
           ),
           
           // Sağ taraf - Get Pro ve Settings
@@ -45,9 +48,11 @@ class HomeHeader extends StatelessWidget {
                 decoration: BoxDecoration(
                   gradient: const LinearGradient(
                     colors: [
-                      Color(0xFFA855F7),
-                      Color(0xFF9333EA),
+                      Color(0xFFA855F7), // Mor
+                      Color(0xFFFF9500), // Turuncu
                     ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.centerRight,
                   ),
                   borderRadius: BorderRadius.circular(20),
                 ),

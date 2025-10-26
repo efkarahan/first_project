@@ -2,13 +2,15 @@ import 'package:flutter/material.dart';
 import '../models/feature_category.dart';
 import 'feature_card.dart';
 
-/// Kategori bölümü (başlık + 2 sütunlu grid)
+/// Kategori bölümü (başlık + yatay kaydırmalı liste)
 class CategorySection extends StatelessWidget {
   final FeatureCategory category;
+  final double? cardWidth;
 
   const CategorySection({
     super.key,
     required this.category,
+    this.cardWidth,
   });
 
   @override
@@ -27,21 +29,23 @@ class CategorySection extends StatelessWidget {
         
         const SizedBox(height: 16),
         
-        // 2 sütunlu grid
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 20),
-          child: GridView.builder(
-            shrinkWrap: true,
-            physics: const NeverScrollableScrollPhysics(),
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-              crossAxisSpacing: 12,
-              mainAxisSpacing: 12,
-              childAspectRatio: 0.85,
-            ),
+        // Yatay kaydırmalı liste
+        SizedBox(
+          height: 200,
+          child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            padding: const EdgeInsets.symmetric(horizontal: 20),
             itemCount: category.items.length,
             itemBuilder: (context, index) {
-              return FeatureCard(item: category.items[index]);
+              return Padding(
+                padding: EdgeInsets.only(
+                  right: index < category.items.length - 1 ? 12 : 0,
+                ),
+                child: SizedBox(
+                  width: cardWidth ?? 145,
+                  child: FeatureCard(item: category.items[index]),
+                ),
+              );
             },
           ),
         ),

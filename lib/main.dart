@@ -53,7 +53,9 @@ class MainScreen extends StatelessWidget {
       builder: (context, state) {
         return Scaffold(
           body: _screens[state.currentIndex],
-          bottomNavigationBar: const CustomBottomNav(),
+          bottomNavigationBar: state.currentIndex == 2 
+              ? null // History Screen'de bottom bar gizle
+              : const CustomBottomNav(),
         );
       },
     );

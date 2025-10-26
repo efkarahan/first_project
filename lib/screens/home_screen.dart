@@ -10,16 +10,37 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        child: ListView(
-          children: [
-            // Üst kısım - Header
-            const HomeHeader(),
-
-            const SizedBox(height: 8),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+              Color(0xFF000000), // Zifiri siyah (SUSAM AI)
+              Color(0xFF000000), // Hala zifiri siyah
+              Color(0xFF1C1C1C), // Açılmaya başlıyor
+              Color(0xFF252525), // Photo Editing bitişinde
+            ],
+            stops: [0.0, 0.15, 0.5, 0.8],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: SafeArea(
+          child: Column(
+            children: [
+              // Üst kısım - Header (Sabit)
+              const HomeHeader(),
+              
+              const SizedBox(height: 4),
+              
+              // Scroll edilebilir içerik
+              Expanded(
+                child: ListView(
+                  physics: const BouncingScrollPhysics(),
+                  children: [
 
             // Photo Editing kategorisi
             CategorySection(
+              cardWidth: 158,
               category: FeatureCategory(
                 title: 'Photo Editing',
                 items: [
@@ -33,14 +54,30 @@ class HomeScreen extends StatelessWidget {
                     subtitle: 'Vintage style conversion',
                     imagePath: 'assets/images/photo_editing/black_white.jpeg',
                   ),
+                  FeatureItem(
+                    title: 'Color Enhance',
+                    subtitle: 'Vibrant color boost',
+                    imagePath: '',
+                  ),
+                  FeatureItem(
+                    title: 'Remove Background',
+                    subtitle: 'Background removal',
+                    imagePath: '',
+                  ),
+                  FeatureItem(
+                    title: 'Remove Person',
+                    subtitle: 'Object removal tool',
+                    imagePath: '',
+                  ),
                 ],
               ),
             ),
-
+            
             const SizedBox(height: 32),
 
             // Creative & Art kategorisi
             CategorySection(
+              cardWidth: 158,
               category: FeatureCategory(
                 title: 'Creative & Art',
                 items: [
@@ -54,14 +91,25 @@ class HomeScreen extends StatelessWidget {
                     subtitle: 'Outfit change style',
                     imagePath: '',
                   ),
+                  FeatureItem(
+                    title: 'Pencil to Photo',
+                    subtitle: 'Drawing to realistic',
+                    imagePath: '',
+                  ),
+                  FeatureItem(
+                    title: 'Voice Presenter',
+                    subtitle: 'Chic presenter style',
+                    imagePath: '',
+                  ),
                 ],
               ),
             ),
-
+            
             const SizedBox(height: 32),
 
             // Portrait & People kategorisi
             CategorySection(
+              cardWidth: 155,
               category: FeatureCategory(
                 title: 'Portrait & People',
                 items: [
@@ -75,10 +123,35 @@ class HomeScreen extends StatelessWidget {
                     subtitle: 'Face enhancement',
                     imagePath: '',
                   ),
+                  FeatureItem(
+                    title: 'Mountain Climber',
+                    subtitle: 'Adventure outdoor scene',
+                    imagePath: '',
+                  ),
+                  FeatureItem(
+                    title: 'Anime Cosplay',
+                    subtitle: 'Anime character style',
+                    imagePath: '',
+                  ),
+                  FeatureItem(
+                    title: 'Warrior',
+                    subtitle: 'Fantasy warrior look',
+                    imagePath: '',
+                  ),
+                  FeatureItem(
+                    title: 'Troll Character',
+                    subtitle: 'Humorous character',
+                    imagePath: '',
+                  ),
+                  FeatureItem(
+                    title: 'Business Professional',
+                    subtitle: 'Corporate headshot',
+                    imagePath: '',
+                  ),
                 ],
               ),
             ),
-
+            
             const SizedBox(height: 32),
 
             // Product & Brand kategorisi
@@ -96,10 +169,15 @@ class HomeScreen extends StatelessWidget {
                     subtitle: 'AI logo generation',
                     imagePath: '',
                   ),
+                  FeatureItem(
+                    title: 'Sweatshirt',
+                    subtitle: 'Fashion product shot',
+                    imagePath: '',
+                  ),
                 ],
               ),
             ),
-
+            
             const SizedBox(height: 32),
 
             // Interior Design kategorisi
@@ -120,7 +198,7 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
-
+            
             const SizedBox(height: 32),
 
             // Travel Places kategorisi
@@ -138,12 +216,26 @@ class HomeScreen extends StatelessWidget {
                     subtitle: 'Beautiful landscapes',
                     imagePath: '',
                   ),
+                  FeatureItem(
+                    title: 'Times Square',
+                    subtitle: 'New York city vibes',
+                    imagePath: '',
+                  ),
+                  FeatureItem(
+                    title: 'Mount Rushmore',
+                    subtitle: 'Historic monument scene',
+                    imagePath: '',
+                  ),
                 ],
               ),
             ),
 
             const SizedBox(height: 20),
-          ],
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

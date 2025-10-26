@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 /// Susam-AI uygulama renkleri
 class AppColors {
   // Ana renkler
-  static const Color background = Color(0xFF0D0D0D);
-  static const Color cardBackground = Color(0xFF1C1C1E);
+  static const Color background = Color(0xFF121212);
+  static const Color cardBackground = Color(0xFF2A2A2C);
   
   // Accent renkler
   static const Color primary = Color(0xFFA855F7); // Mor/Pembe

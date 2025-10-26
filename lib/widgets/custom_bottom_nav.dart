@@ -15,13 +15,7 @@ class CustomBottomNav extends StatelessWidget {
       builder: (context, state) {
         return Container(
           decoration: const BoxDecoration(
-            color: AppColors.cardBackground,
-            border: Border(
-              top: BorderSide(
-                color: AppColors.divider,
-                width: 0.5,
-              ),
-            ),
+            color: Color(0xFF1B1B1C),
           ),
           child: SafeArea(
             child: Padding(
