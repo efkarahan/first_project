@@ -18,7 +18,7 @@ class FeatureCard extends StatelessWidget {
         color: AppColors.cardBackground,
         borderRadius: BorderRadius.circular(16),
         border: Border.all(
-          color: Colors.white.withOpacity(0.1),
+          color: Colors.white.withValues(alpha: 0.1),
           width: 1,
         ),
       ),
@@ -48,7 +48,7 @@ class FeatureCard extends StatelessWidget {
                       width: double.infinity,
                       height: double.infinity,
                       fit: BoxFit.cover,
-                      alignment: Alignment.center,
+                      alignment: item.alignTop ? Alignment.topCenter : Alignment.center,
                       errorBuilder: (context, error, stackTrace) {
                         return Container(
                           color: AppColors.divider,
@@ -70,32 +70,32 @@ class FeatureCard extends StatelessWidget {
             height: 76,
             child: Padding(
               padding: const EdgeInsets.all(10),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(
-                    item.title,
-                    style: const TextStyle(
-                      color: AppColors.textPrimary,
+              children: [
+                Text(
+                  item.title,
+                  style: const TextStyle(
+                    color: AppColors.textPrimary,
                       fontSize: 14,
-                      fontWeight: FontWeight.w600,
-                    ),
-                    maxLines: 1,
-                    overflow: TextOverflow.ellipsis,
+                    fontWeight: FontWeight.w600,
                   ),
-                  const SizedBox(height: 4),
-                  Text(
-                    item.subtitle,
-                    style: TextStyle(
-                      color: AppColors.textSecondary,
-                      fontSize: 12,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                ),
+                const SizedBox(height: 4),
+                Text(
+                  item.subtitle,
+                  style: TextStyle(
+                    color: AppColors.textSecondary,
+                    fontSize: 12,
                       height: 1.3,
-                    ),
-                    maxLines: 2,
-                    overflow: TextOverflow.ellipsis,
                   ),
-                ],
+                  maxLines: 2,
+                  overflow: TextOverflow.ellipsis,
+                ),
+              ],
               ),
             ),
           ),

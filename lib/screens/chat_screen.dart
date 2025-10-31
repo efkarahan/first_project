@@ -112,7 +112,7 @@ class _ChatScreenState extends State<ChatScreen> {
                                 Container(
                                   decoration: BoxDecoration(
                                     border: Border.all(
-                                      color: AppColors.textPrimary.withOpacity(0.3),
+                                      color: AppColors.textPrimary.withValues(alpha: 0.3),
                                       width: 1,
                                     ),
                                     borderRadius: BorderRadius.circular(18),
@@ -203,7 +203,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           decoration: InputDecoration(
                             hintText: 'How would you like the image to be?',
                             hintStyle: TextStyle(
-                              color: AppColors.textSecondary.withOpacity(0.6),
+                              color: AppColors.textSecondary.withValues(alpha: 0.6),
                               fontSize: 14,
                             ),
                             border: InputBorder.none,
@@ -221,12 +221,12 @@ class _ChatScreenState extends State<ChatScreen> {
                                   width: 34,
                                   height: 34,
                                   decoration: BoxDecoration(
-                                    color: AppColors.textSecondary.withOpacity(0.15),
+                                    color: AppColors.textSecondary.withValues(alpha: 0.15),
                                     shape: BoxShape.circle,
                                   ),
                                   child: Icon(
                                     Icons.arrow_upward,
-                                    color: AppColors.textSecondary.withOpacity(0.5),
+                                    color: AppColors.textSecondary.withValues(alpha: 0.5),
                                     size: 19,
                                   ),
                                 ),

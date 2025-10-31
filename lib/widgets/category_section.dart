@@ -42,7 +42,7 @@ class CategorySection extends StatelessWidget {
                   right: index < category.items.length - 1 ? 12 : 0,
                 ),
                 child: SizedBox(
-                  width: cardWidth ?? 145,
+                  width: cardWidth ?? 158,
                   child: FeatureCard(item: category.items[index]),
                 ),
               );
